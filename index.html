@@ -1,319 +1,268 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر Alkarow | لبرامج وتطبيقات هيثم محمود الكرو</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#05193d',
-                        brandBlueLight: '#0d2d6c',
-                        brandGold: '#facc15',
-                        brandGoldDark: '#ca8a04',
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #030c1f;
-            color: #f8fafc;
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #ca8a04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card-glow {
-            box-shadow: 0 10px 30px -10px rgba(250, 204, 21, 0.15);
-            transition: all 0.3s ease;
-        }
-        .card-glow:hover {
-            box-shadow: 0 20px 40px -15px rgba(250, 204, 21, 0.3);
-            transform: translateY(-5px);
-        }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-brandGold selection:text-brandBlue">
-
-    <header class="sticky top-0 z-50 bg-brandBlue/95 backdrop-blur-md border-b border-brandGold/20 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo & Brand Name -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brandGold shadow-md group-hover:scale-105 transition-transform">
-                    <img src="https://placehold.co/100x100/05193d/facc15?text=Alkarow" 
-                         onerror="this.src='https://placehold.co/100x100/0d2d6c/ffffff?text=Store'" 
-                         alt="شعار Alkarow" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <span class="block text-lg font-bold text-white tracking-wide">متجر Alkarow</span>
-                    <span class="block text-xs text-brandGold font-medium tracking-widest uppercase">هيثم محمود الكرو</span>
-                </div>
-            </a>
-
-            <!-- Navigation Links (Desktop) -->
-            <nav class="hidden md:flex items-center gap-8 font-medium">
-                <a href="#home" class="text-gray-300 hover:text-brandGold transition-colors">الرئيسية</a>
-                <a href="#apps" class="text-gray-300 hover:text-brandGold transition-colors">التطبيقات المتاحة</a>
-                <a href="#features" class="text-gray-300 hover:text-brandGold transition-colors">مميزات المتجر</a>
-                <a href="#contact" class="text-gray-300 hover:text-brandGold transition-colors">اتصل بنا</a>
-            </nav>
-
-            <!-- Action Button -->
-            <div class="flex items-center gap-4">
-                <a href="#apps" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold px-5 py-2.5 rounded-xl shadow-lg transition-all transform hover:scale-105">
-                    <i class="fa-solid fa-download"></i>
-                    <span>تحميل التطبيق</span>
-                </a>
-                <!-- Mobile Menu Toggle Button -->
-                <button id="menu-btn" class="md:hidden text-brandGold text-2xl p-2 focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+<header class="sticky top-0 z-50 bg-brandBlue/95 backdrop-blur-md border-b border-brandGold/20 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo & Brand Name -->
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brandGold shadow-md group-hover:scale-105 transition-transform">
+                <img src="logo.png" 
+                     onerror="this.src='https://placehold.co/100x100/05193d/facc15?text=عقاري'" 
+                     alt="شعار دليلك العقاري" class="w-full h-full object-cover">
             </div>
-        </div>
-
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brandBlueLight border-b border-brandGold/20 px-6 py-4 space-y-3">
-            <a href="#home" class="block text-gray-200 hover:text-brandGold py-1">الرئيسية</a>
-            <a href="#apps" class="block text-gray-200 hover:text-brandGold py-1">التطبيقات المتاحة</a>
-            <a href="#features" class="block text-gray-200 hover:text-brandGold py-1">مميزات المتجر</a>
-            <a href="#contact" class="block text-gray-200 hover:text-brandGold py-1">اتصل بنا</a>
-        </div>
-    </header>
-
-    <section id="home" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brandBlue to-[#030c1f]">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Hero Text -->
-                <div class="space-y-6 text-center lg:text-right">
-                    <div class="inline-flex items-center gap-2 bg-brandGold/10 border border-brandGold/30 text-brandGold px-4 py-1.5 rounded-full text-sm font-semibold">
-                        <i class="fa-solid fa-crown text-brandGold"></i>
-                        <span>منصة المطور هيثم محمود الكرو</span>
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                        مرحباً بك في <br>
-                        <span class="gold-gradient-text">متجر Alkarow</span>
-                    </h1>
-                    <p class="text-gray-300 text-lg max-w-xl mx-auto lg:mx-0">
-                        الوجهة الرسمية لتحميل أحدث التطبيقات والألعاب الخدمية والترفيهية التي طوّرها المبرمج هيثم محمود الكرو بكل سرعة وأمان.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-                        <a href="#apps" class="bg-brandGold hover:bg-yellow-400 text-brandBlue font-bold px-8 py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-1 flex items-center gap-3">
-                            <i class="fa-solid fa-rocket text-xl"></i>
-                            <span>تنزيل التطبيق الآن</span>
-                        </a>
-                        <a href="#contact" class="bg-brandBlueLight hover:bg-brandBlueLight/80 border border-brandGold/30 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center gap-3">
-                            <i class="fa-solid fa-headset text-brandGold text-xl"></i>
-                            <span>تواصل مع المطور</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero Image / Logo Showcase -->
-                <div class="flex justify-center">
-                    <div class="relative w-72 h-72 sm:w-96 sm:h-96">
-                        <div class="absolute inset-0 bg-brandGold/20 rounded-full blur-3xl animate-pulse"></div>
-                        <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-brandGold shadow-2xl bg-brandBlueLight p-2">
-                            <img src="https://placehold.co/500x500/05193d/facc15?text=Alkarow+Store" 
-                                 onerror="this.src='https://placehold.co/500x500/0d2d6c/ffffff?text=Haitham+Mahmoud'" 
-                                 alt="شعار المتجر الذهبي" class="w-full h-full object-cover rounded-2xl">
-                        </div>
-                    </div>
-                </div>
-
+            <div>
+                <span class="block text-lg font-bold text-white tracking-wide">دليلك العقاري</span>
+                <span class="block text-xs text-brandGold font-medium tracking-widest uppercase">هيثم محمود الكرو</span>
             </div>
-        </div>
-    </section>
+        </a>
 
-    <section id="apps" class="py-16 bg-[#05142e]/60 border-y border-brandGold/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-                    تطبيق <span class="gold-gradient-text">Alkarow الرسمي</span>
-                </h2>
-                <p class="text-gray-400 text-base">
-                    قم بتحميل الإصدار الرسمي لتطبيقك والاستمتاع بكافة الميزات مباشرة بصيغة APK.
-                </p>
-            </div>
+        <!-- Navigation Links (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8 font-medium">
+            <a href="#home" class="text-gray-300 hover:text-brandGold transition-colors">الرئيسية</a>
+            <a href="#apps" class="text-gray-300 hover:text-brandGold transition-colors">التطبيق المباشر</a>
+            <a href="#features" class="text-gray-300 hover:text-brandGold transition-colors">مميزات التطبيق</a>
+            <a href="#contact" class="text-gray-300 hover:text-brandGold transition-colors">اتصل بالمطور</a>
+        </nav>
 
-            <!-- Apps Grid (Single App Showcase) -->
-            <div class="max-w-md mx-auto">
-                <div class="bg-brandBlue border border-brandGold/20 rounded-2xl p-6 card-glow flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-16 h-16 rounded-2xl bg-brandBlueLight border border-brandGold/40 flex items-center justify-center text-brandGold text-2xl shadow-inner">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
-                            </div>
-                            <span class="bg-brandGold/10 text-brandGold text-xs font-bold px-3 py-1 rounded-full border border-brandGold/20">
-                                إصدار 1.0.0
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">تطبيق Alkarow الرسمي</h3>
-                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
-                            التطبيق الرسمي للمتجر لمتابعة كافة الإصدارات والتحديثات الجديدة أولاً بأول من صنع هيثم محمود الكرو.
-                        </p>
-                    </div>
-                    <div class="space-y-4 pt-4 border-t border-gray-800">
-                        <div class="flex items-center justify-between text-xs text-gray-400">
-                            <span><i class="fa-solid fa-file-arrow-down ml-1 text-brandGold"></i> الحجم: 65 MB</span>
-                            <span><i class="fa-solid fa-shield-check ml-1 text-green-400"></i> موثوق وآمن</span>
-                        </div>
-                        <button onclick="openDownloadModal('https://github.com/haithamkarow/alkarow-store/releases/download/1.0.0/default.apk', 'تطبيق Alkarow الرسمي', '65 MB', 'v1.0.0')" class="w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-download"></i>
-                            <span>تحميل APK مباشرة</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-                مميزات متجر <span class="gold-gradient-text">Alkarow</span>
-            </h2>
-            <p class="text-gray-400 text-base">
-                نحرص على توفير أفضل تجربة تنزيل برمجية مباشرة وآمنة.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
-                <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">سرعة عالية</h3>
-                <p class="text-gray-400 text-sm">روابط تحميل مباشرة وسريعة خالية من الإعلانات المزعجة.</p>
-            </div>
-            <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
-                <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">أمان كامل</h3>
-                <p class="text-gray-400 text-sm">جميع التطبيقات مفحوصة ومضمونة 100% من المطور هيثم محمود الكرو.</p>
-            </div>
-            <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
-                <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">تحديثات دورية</h3>
-                <p class="text-gray-400 text-sm">متابعة مستمرة لتحديث الإصدارات وإضافة ميزات جديدة بانتظام.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-brandBlueLight/30 border-t border-brandGold/10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h2 class="text-3xl font-bold">تواصل مع المطور هيثم محمود الكرو</h2>
-            <p class="text-gray-300 max-w-xl mx-auto">
-                يسعدنا سماع آرائكم واستفساراتكم، أو في حال واجهتكم أي مشكلة تقنية في تحميل التطبيق.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6 pt-4">
-                <a href="mailto:support@alkarow.com" class="bg-brandBlue border border-brandGold/30 hover:border-brandGold text-white px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
-                    <i class="fa-solid fa-envelope text-brandGold text-xl"></i>
-                    <span>support@alkarow.com</span>
-                </a>
-                <a href="https://t.me/" target="_blank" class="bg-brandBlue border border-brandGold/30 hover:border-brandGold text-white px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
-                    <i class="fa-brands fa-telegram text-brandGold text-xl"></i>
-                    <span>قناة التليجرام الرسمية</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-brandBlue border-t border-brandGold/20 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
-            <p class="text-gray-400 text-sm">
-                جميع الحقوق محفوظة © 2026 <span class="text-brandGold font-semibold">متجر Alkarow</span> - المطور: <span class="text-white">هيثم محمود الكرو</span>
-            </p>
-            <p class="text-gray-500 text-xs">
-                منصة مستقلة ومجانية لتطبيقات الهواتف الذكية.
-            </p>
-        </div>
-    </footer>
-
-    <div id="downloadModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-brandBlue border-2 border-brandGold rounded-3xl max-w-md w-full p-6 text-center space-y-4 shadow-2xl relative">
-            <button onclick="closeDownloadModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="w-16 h-16 bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center mx-auto text-3xl border border-brandGold/30">
+        <!-- Action Button -->
+        <div class="flex items-center gap-4">
+            <a href="#apps" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold px-5 py-2.5 rounded-xl shadow-lg transition-all transform hover:scale-105">
                 <i class="fa-solid fa-download"></i>
-            </div>
-            <h3 id="modalAppName" class="text-2xl font-bold text-white">اسم التطبيق</h3>
-            <div class="flex justify-center gap-4 text-sm text-gray-300">
-                <span id="modalAppSize">الحجم: 0 MB</span>
-                <span>•</span>
-                <span id="modalAppVersion">الإصدار: v1.0</span>
-            </div>
-            <p class="text-gray-300 text-sm">
-                التطبيق جاهز للتحميل المباشر بصيغة APK. اضغط أدناه لبدء التنزيل.
-            </p>
-            <div class="pt-4 space-y-3">
-                <a id="modalDownloadBtn" href="#" class="block w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold py-3 rounded-xl shadow-lg transition-all text-center">
-                    تحميل ملف APK الآن
-                </a>
-                <button onclick="closeDownloadModal()" class="block w-full bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-800 py-2.5 rounded-xl transition-all">
-                    إلغاء
-                </button>
-            </div>
+                <span>تحميل التطبيق</span>
+            </a>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-brandGold text-2xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brandBlueLight border-b border-brandGold/20 px-6 py-4 space-y-3">
+        <a href="#home" class="block text-gray-200 hover:text-brandGold py-1">الرئيسية</a>
+        <a href="#apps" class="block text-gray-200 hover:text-brandGold py-1">التطبيق المباشر</a>
+        <a href="#features" class="block text-gray-200 hover:text-brandGold py-1">مميزات التطبيق</a>
+        <a href="#contact" class="block text-gray-200 hover:text-brandGold py-1">اتصل بالمطور</a>
+    </div>
+</header>
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+<section id="home" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brandBlue to-[#030c1f]">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Hero Text -->
+            <div class="space-y-6 text-center lg:text-right">
+                <div class="inline-flex items-center gap-2 bg-brandGold/10 border border-brandGold/30 text-brandGold px-4 py-1.5 rounded-full text-sm font-semibold">
+                    <i class="fa-solid fa-house-chimney text-brandGold"></i>
+                    <span>كل ما تحتاجه للعقار على عقارك المنزلي</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    تطبيق <br>
+                    <span class="gold-gradient-text">دليلك العقاري</span>
+                </h1>
+                <p class="text-gray-300 text-lg max-w-xl mx-auto lg:mx-0">
+                    الوجهة الاحترافية الأولى لإدارة وعرض العقارات بكل سهولة ويسر. من تطوير البرمجيات المتقدمة للمهندس هيثم محمود الكرو.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#apps" class="bg-brandGold hover:bg-yellow-400 text-brandBlue font-bold px-8 py-4 rounded-xl shadow-xl transition-all transform hover:-translate-y-1 flex items-center gap-3">
+                        <i class="fa-solid fa-rocket text-xl"></i>
+                        <span>تنزيل التطبيق الآن</span>
+                    </a>
+                    <a href="#contact" class="bg-brandBlueLight hover:bg-brandBlueLight/80 border border-brandGold/30 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-headset text-brandGold text-xl"></i>
+                        <span>تواصل مع المطور</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image / Logo Showcase -->
+            <div class="flex justify-center">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                    <div class="absolute inset-0 bg-brandGold/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-brandGold shadow-2xl bg-brandBlueLight p-2">
+                        <img src="logo.png" 
+                             onerror="this.src='https://placehold.co/500x500/05193d/facc15?text=دليلك+العقاري'" 
+                             alt="شعار تطبيق دليلك العقاري" class="w-full h-full object-cover rounded-2xl">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="apps" class="py-16 bg-[#05142e]/60 border-y border-brandGold/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                تطبيق <span class="gold-gradient-text">دليلك العقاري الرسمي</span>
+            </h2>
+            <p class="text-gray-400 text-base">
+                قم بتحميل الإصدار المباشر والآمن للتطبيق بصيغة APK.
+            </p>
+        </div>
+
+        <!-- Single App Showcase -->
+        <div class="max-w-md mx-auto">
+            <div class="bg-brandBlue border border-brandGold/20 rounded-2xl p-6 card-glow flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-16 h-16 rounded-2xl overflow-hidden border border-brandGold/40 shadow-inner bg-brandBlueLight">
+                            <img src="logo.png" onerror="this.src='https://placehold.co/100x100/05193d/facc15?text=APK'" alt="أيقونة" class="w-full h-full object-cover">
+                        </div>
+                        <span class="bg-brandGold/10 text-brandGold text-xs font-bold px-3 py-1 rounded-full border border-brandGold/20">
+                            إصدار 1.0.0
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">تطبيق دليلك العقاري</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        كل ما تحتاجه للعقار على عقارك المنزلي بطريقة عصرية ومبتكرة من إعداد هيثم محمود الكرو.
+                    </p>
+                </div>
+                <div class="space-y-4 pt-4 border-t border-gray-800">
+                    <div class="flex items-center justify-between text-xs text-gray-400">
+                        <span><i class="fa-solid fa-file-arrow-down ml-1 text-brandGold"></i> الحجم: 65 MB</span>
+                        <span><i class="fa-solid fa-shield-check ml-1 text-green-400"></i> موثوق وآمن</span>
+                    </div>
+                    <button onclick="openDownloadModal('https://github.com/haithamkarow/alkarow-store/releases/download/1.0.0/default.apk', 'تطبيق دليلك العقاري', '65 MB', 'v1.0.0')" class="w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i>
+                        <span>تحميل APK مباشرة</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            مميزات تطبيق <span class="gold-gradient-text">دليلك العقاري</span>
+        </h2>
+        <p class="text-gray-400 text-base">
+            نحرص على توفير أفضل تجربة استخدام مرنة وعملية.
+        </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
+            <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">سرعة عالية</h3>
+            <p class="text-gray-400 text-sm">تحميل مباشر وسريع لحجم 65 ميجابايت من خوادم آمنة.</p>
+        </div>
+        <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
+            <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">أمان كامل</h3>
+            <p class="text-gray-400 text-sm">التطبيق مفحوص وخالٍ من الفيروسات، تم تصميمه بواسطة المبرمج هيثم الكرو.</p>
+        </div>
+        <div class="bg-brandBlueLight/40 border border-brandGold/10 p-8 rounded-2xl text-center space-y-4">
+            <div class="w-16 h-16 mx-auto bg-brandGold/10 text-brandGold rounded-full flex items-center justify-center text-2xl border border-brandGold/30">
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">تحديثات دورية</h3>
+            <p class="text-gray-400 text-sm">متابعة مستمرة وإصدارات جديدة لإضافة عقارات وخدمات مميزة.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-16 bg-brandBlueLight/30 border-t border-brandGold/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <h2 class="text-3xl font-bold">تواصل مع المطور هيثم محمود الكرو</h2>
+        <p class="text-gray-300 max-w-xl mx-auto">
+            نسعد باستفساراتكم ومقترحاتكم حول تطبيق دليلك العقاري.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 pt-4">
+            <a href="mailto:support@alkarow.com" class="bg-brandBlue border border-brandGold/30 hover:border-brandGold text-white px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
+                <i class="fa-solid fa-envelope text-brandGold text-xl"></i>
+                <span>support@alkarow.com</span>
+            </a>
+            <a href="https://t.me/" target="_blank" class="bg-brandBlue border border-brandGold/30 hover:border-brandGold text-white px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
+                <i class="fa-brands fa-telegram text-brandGold text-xl"></i>
+                <span>قناة التليجرام الرسمية</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-brandBlue border-t border-brandGold/20 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+        <p class="text-gray-400 text-sm">
+            جميع الحقوق محفوظة © 2026 <span class="text-brandGold font-semibold">دليلك العقاري</span> - المطور: <span class="text-white">هيثم محمود الكرو</span>
+        </p>
+        <p class="text-gray-500 text-xs">
+            كل ما تحتاجه للعقار على عقارك المنزلي.
+        </p>
+    </div>
+</footer>
+
+<div id="downloadModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brandBlue border-2 border-brandGold rounded-3xl max-w-md w-full p-6 text-center space-y-4 shadow-2xl relative">
+        <button onclick="closeDownloadModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-16 h-16 rounded-2xl overflow-hidden mx-auto border border-brandGold/40 shadow-inner bg-brandBlueLight">
+            <img src="logo.png" onerror="this.src='https://placehold.co/100x100/05193d/facc15?text=APK'" alt="أيقونة" class="w-full h-full object-cover">
+        </div>
+        <h3 id="modalAppName" class="text-2xl font-bold text-white">اسم التطبيق</h3>
+        <div class="flex justify-center gap-4 text-sm text-gray-300">
+            <span id="modalAppSize">الحجم: 65 MB</span>
+            <span>•</span>
+            <span id="modalAppVersion">الإصدار: v1.0.0</span>
+        </div>
+        <p class="text-gray-300 text-sm">
+            التطبيق جاهز للتحميل المباشر بصيغة APK. اضغط أدناه لبدء التنزيل.
+        </p>
+        <div class="pt-4 space-y-3">
+            <a id="modalDownloadBtn" href="#" class="block w-full bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-brandBlue font-bold py-3 rounded-xl shadow-lg transition-all text-center">
+                تحميل ملف APK الآن
+            </a>
+            <button onclick="closeDownloadModal()" class="block w-full bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-800 py-2.5 rounded-xl transition-all">
+                إلغاء
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
         });
+    });
 
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+    // Modal Logic
+    const downloadModal = document.getElementById('downloadModal');
+    const modalAppName = document.getElementById('modalAppName');
+    const modalAppSize = document.getElementById('modalAppSize');
+    const modalAppVersion = document.getElementById('modalAppVersion');
+    const modalDownloadBtn = document.getElementById('modalDownloadBtn');
 
-        // Modal Logic
-        const downloadModal = document.getElementById('downloadModal');
-        const modalAppName = document.getElementById('modalAppName');
-        const modalAppSize = document.getElementById('modalAppSize');
-        const modalAppVersion = document.getElementById('modalAppVersion');
-        const modalDownloadBtn = document.getElementById('modalDownloadBtn');
+    function openDownloadModal(downloadUrl, appName, appSize, appVersion) {
+        modalAppName.textContent = appName;
+        modalAppSize.textContent = "الحجم: " + appSize;
+        modalAppVersion.textContent = "الإصدار: " + appVersion;
+        modalDownloadBtn.href = downloadUrl;
+        downloadModal.classList.remove('hidden');
+        downloadModal.classList.add('flex');
+    }
 
-        function openDownloadModal(downloadUrl, appName, appSize, appVersion) {
-            modalAppName.textContent = appName;
-            modalAppSize.textContent = "الحجم: " + appSize;
-            modalAppVersion.textContent = "الإصدار: " + appVersion;
-            modalDownloadBtn.href = downloadUrl;
-            downloadModal.classList.remove('hidden');
-            downloadModal.classList.add('flex');
+    function closeDownloadModal() {
+        downloadModal.classList.add('hidden');
+        downloadModal.classList.remove('flex');
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === downloadModal) {
+            closeDownloadModal();
         }
-
-        function closeDownloadModal() {
-            downloadModal.classList.add('hidden');
-            downloadModal.classList.remove('flex');
-        }
-
-        window.addEventListener('click', (e) => {
-            if (e.target === downloadModal) {
-                closeDownloadModal();
-            }
-        });
-    </script>
-</body>
-</html>
+    });
+</script>
